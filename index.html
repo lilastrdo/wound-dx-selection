@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wound Dressing Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            font-size: 18px;
+            color: #333;
+            margin: 0;
+        }
+        .answers {
+            margin-left: 20px;
+        }
+        .answers label {
+            display: block;
+            font-size: 16px;
+            color: #555;
+            padding: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .answers input[type="radio"] {
+            margin-right: 10px;
+        }
+        .answers label:hover {
+            background-color: #e9ecef;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 40px;
+            color: #555;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .intervention-list {
+            margin: 0;
+            padding: 0;
+            color: #555;
+        }
+        .intervention-list li {
+            margin-bottom: 10px;
+        }
+        .intervention-title {
+            font-weight: bold;
+            margin-top: 20px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Wound Dressing Assessment and Dressing Selections</h1>
+    
+    <!-- Question 1 -->
+    <div class="question">
+        <p>1. What is the amount of the exudate?</p>
+        <div class="answers">
+            <label><input type="radio" name="exudate" value="none-minimal-scant" onclick="showNextQuestion('question2')"> None/Minimal/Scant</label><br>
+            <label><input type="radio" name="exudate" value="moderate-large" onclick="showNextQuestion('question9')"> Moderate/Large</label>
+        </div>
+    </div>
+
+    <!-- Question 2 -->
+    <div id="question2" class="question" style="display: none;">
+        <p>2. What is the depth of the wound?</p>
+        <div class="answers">
+            <label><input type="radio" name="depth" value="deep" onclick="showNextQuestion('question3')"> >0.6cm</label><br>
+            <label><input type="radio" name="depth" value="shallow" onclick="showNextQuestion('question3')"> <0.6cm</label>
+        </div>
+    </div>
+
+    <!-- Question 3 -->
+    <div id="question3" class="question" style="display: none;">
+        <p>3. What type of exudate?</p>
+        <div class="answers">
+            <label><input type="radio" name="exudate-type" value="serosanguineous-serous" onclick="showNextQuestion('question4')"> Serosanguineous/Serous</label><br>
+            <label><input type="radio" name="exudate-type" value="sanguineous" onclick="showNextQuestion('question4')"> Sanguineous</label><br>
+            <label><input type="radio" name="exudate-type" value="pus-malodorous" onclick="showNextQuestion('question6')"> Pus and malodorous</label>
+        </div>
+    </div>
+
+    <!-- Question 4 -->
+    <div id="question4" class="question" style="display: none;">
+        <p>4. What does the wound bed look like?</p>
+        <div class="answers">
+            <label><input type="radio" name="wound-bed" value="pink-red" onclick="showNextQuestion('question5')"> Pink/Red tissue</label><br>
+            <label><input type="radio" name="wound-bed" value="slough-eschar-gangrene" onclick="showNextQuestion('question6')"> Slough/Eschar/Gangrene</label>
+        </div>
+    </div>
+
+    <!-- Question 5 -->
+    <div id="question5" class="question" style="display: none;">
+        <p>This is a healthy wound. <br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Notify MD and +/- consult PTWC.</li>
+            <li>4. Nursing driven to consult a wound care nurse for dressing selection.</li>
+            <li>5. Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+        </ul>
+        <p>For Deep Dry Wound dressing material to hydrate and maintain moisture:</p>
+        <ul>
+            <li>Filler dressing option: NS-moist gauze packing; Vashe-moist gauze packing</li>
+            <li>Cover dressing option: Gauze + transparent/waterproof adhesive dressing: Tegaderm; Polyskin</li>
+        </ul>
+        <p>For Shallow Dry Wound dressing material to hydrate and maintain moisture:</p>
+        <ul>
+            <li>Hydrogels: Medihoney gel; Woun’dres Collagen; Silver gel (for infected wound); Plurogel; Kerralite cool border</li>
+            <li>Hydrocolloids: Medihoney Hydrocolloids; DuoDERM Extra Thin CGF; ComFeel</li>
+            <li>Non-adherent Impregnated: Curity Oil emulsion gauze; Vaseline gauze; Xeroform gauze; Cutimed Sorbact gel</li>
+            <li>Non-impregnated: Telfa; Mepore (tape border)</li>
+            <li>Secures dressings with Transparent adhesive dressing: Tegaderm; Polyskin</li>
+            <li>Adhesive tape: Medipore; MedFix; Silicon Tape</li>
+            <li>Foam: Mepilex</li>
+        </ul>
+    </div>
+
+    <!-- Question 6 -->
+    <div id="question6" class="question" style="display: none;">
+        <p>This is an infected wound with pus. <br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Notify MD who will consult PTWC and +/-surgical team for debridement.</li>
+            <li>4. Request wound culture order from MD.</li>
+            <li>5. Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+        </ul>
+        <p>For Deep Wet Wound dressing material to absorb drainage and need absorptive filter:</p>
+        <ul>
+            <li>Filler dressing option: Hydrofiber: Aquacel rope; Alginate (flat or rope); Aquacel Ag (for infected wound); Plain packing strips (¼,½,1-inch); Iodoform packing strips (¼,½,1-inch)</li>
+            <li>Rolled Gauze (Woven): Kerlix roll</li>
+            <li>Mesalt (for autolytic debridement)</li>
+        </ul>
+        <p>For Shallow Wet Wound dressing material to absorb drainage and need absorptive filter:</p>
+        <ul>
+            <li>Foam: Polymem; Mepilex (4x4; heel; sacral; Ag)</li>
+            <li>Abd pads Calcium Alginate: Medihoney Alginate</li>
+            <li>Hydrofiber: Aquacel; Aquacel Extra; Aquacel Ag (infected wound)</li>
+            <li>Hydrocolloid: Exuderm (4x4)</li>
+            <li>Very absorptive: Sofsorb; Drawtex; Mextra</li>
+            <li>Contact layer: Mepitel One; Cutimed Sorbact</li>
+        </ul>
+    </div>
+
+    <!-- Question 7 -->
+    <div id="question7" class="question" style="display: none;">
+        <p>It is a Dry Shallow Wound. <br>What type of exudate?</p>
+        <div class="answers">
+            <label><input type="radio" name="exudate-type-dry-shallow" value="serosanguineous-serous" onclick="showNextQuestion('question8')"> Serosanguineous/Serous</label><br>
+            <label><input type="radio" name="exudate-type-dry-shallow" value="sanguineous" onclick="showNextQuestion('question8')"> Sanguineous</label><br>
+            <label><input type="radio" name="exudate-type-dry-shallow" value="pus-malodorous" onclick="showNextQuestion('question6')"> Pus and malodorous</label>
+        </div>
+    </div>
+
+    <!-- Question 8 -->
+    <div id="question8" class="question" style="display: none;">
+        <p>What does the wound bed look like?</p>
+        <div class="answers">
+            <label><input type="radio" name="wound-bed-dry-shallow" value="pink-red" onclick="showNextQuestion('question5')"> Pink/Red tissue</label><br>
+            <label><input type="radio" name="wound-bed-dry-shallow" value="slough-eschar-gangrene" onclick="showNextQuestion('question6')"> Slough/Eschar/Gangrene</label>
+        </div>
+    </div>
+
+    <!-- Question 9 -->
+    <div id="question9" class="question" style="display: none;">
+        <p>It is a Wet wound. What is the depth of the wound?</p>
+        <div class="answers">
+            <label><input type="radio" name="depth-wet" value="deep" onclick="showNextQuestion('question10')"> >0.6cm</label><br>
+            <label><input type="radio" name="depth-wet" value="shallow" onclick="showNextQuestion('question10')"> <0.6cm</label>
+        </div>
+    </div>
+
+    <!-- Question 10 -->
+    <div id="question10" class="question" style="display: none;">
+        <p>It is a Wet wound. What type of exudate?</p>
+        <div class="answers">
+            <label><input type="radio" name="exudate-type-wet" value="serosanguineous-serous" onclick="showNextQuestion('question4')"> Serosanguineous/Serous</label><br>
+            <label><input type="radio" name="exudate-type-wet" value="sanguineous" onclick="showNextQuestion('question11')"> Sanguineous</label><br>
+            <label><input type="radio" name="exudate-type-wet" value="pus-malodorous" onclick="showNextQuestion('question6')"> Pus and malodorous</label>
+        </div>
+    </div>
+
+    <!-- Question 11 -->
+    <div id="question11" class="question" style="display: none;">
+        <p>This is a delayed healing wound. <br>Intervention:</p>
+        <ul>
+            <li>1. Take pictures with Rover and chart on EPIC.</li>
+            <li>2. 2 RNs Co-sign.</li>
+            <li>3. Notify MD who will consult PTWC and +/-surgical team for debridement.</li>
+            <li>4. Nursing driven to consult for poor nutrition intake; unplanned weight loss; failure of wound granulation; low albumin and prealbumin.</li>
+        </ul>
+        <p>For Deep Wet Wound dressing material to absorb drainage and need absorptive filter:</p>
+        <ul>
+            <li>Filler dressing option: Hydrofiber: Aquacel rope; Alginate (flat or rope); Aquacel Ag (for infected wound); Plain packing strips (¼,½,1-inch); Iodoform packing strips (¼,½,1-inch)</li>
+            <li>Rolled Gauze (Woven): Kerlix roll</li>
+            <li>Mesalt (for autolytic debridement)</li>
+        </ul>
+        <p>For Shallow Wet Wound dressing material to absorb drainage and need absorptive filter:</p>
+        <ul>
+            <li>Foam: Polymem; Mepilex (4x4; heel; sacral; Ag)</li>
+            <li>Abd pads Calcium Alginate: Medihoney Alginate</li>
+            <li>Hydrofiber: Aquacel; Aquacel Extra; Aquacel Ag (infected wound)</li>
+            <li>Hydrocolloid: Exuderm (4x4)</li>
+            <li>Very absorptive: Sofsorb; Drawtex; Mextra</li>
+            <li>Contact layer: Mepitel One; Cutimed Sorbact</li>
+        </ul>
+    </div>
+
+    <script>
+        function showNextQuestion(id) {
+            var questions = document.querySelectorAll('.question');
+            questions.forEach(function(question) {
+                question.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
